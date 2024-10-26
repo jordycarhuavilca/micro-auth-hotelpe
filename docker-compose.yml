@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  app:
+    container_name: hotel_pe_app
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    networks:
+      - hotel-pe-network
+  redis:
+    image: redis:6.2-alpine
+    container_name: redis-micro
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning
+    networks:
+      - hotel-pe-network
+networks:
+  hotel-pe-network:
