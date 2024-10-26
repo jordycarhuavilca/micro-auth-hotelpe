@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-@RedisHash(value = "TemporalRegistration",timeToLive = 60)
+@RedisHash(value = "TemporalRegistration",timeToLive = 120)
 public class TemporalRegistration implements Serializable {
         @Id
         public Integer id;
