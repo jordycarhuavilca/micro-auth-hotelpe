@@ -1,4 +1,4 @@
-# Created at 2024-10-25T22:07:35.640
+# Created at 2024-10-26T00:11:03.479
 Boot Manifest-JAR contains absolute paths in classpath 'D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root
