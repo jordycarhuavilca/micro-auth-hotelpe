@@ -44,7 +44,7 @@ public class UserMessageListener {
         }
     }
 
-    @SqsListener( value = "${spring.cloud.aws.sqs.endpoint.register.dl.queue}")
+    /*@SqsListener( value = "${spring.cloud.aws.sqs.endpoint.register.dl.queue}")
     public void processRegisterFailMessage(Message<?> message) {
         try {
             log.info("processRegisterFailMessage.init " + message );
@@ -61,5 +61,5 @@ public class UserMessageListener {
         } catch (Exception e) {
             throw new RuntimeException("Cannot process message from SQS", e);
         }
-    }
+    }*/
 }

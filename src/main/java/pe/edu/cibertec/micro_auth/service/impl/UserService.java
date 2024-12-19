@@ -21,6 +21,9 @@ import pe.edu.cibertec.micro_auth.utils.JWTUtils;
 import pe.edu.cibertec.micro_auth.utils.TemporalRegistrationConstans;
 import pe.edu.cibertec.micro_auth.utils.Utils;
 
+import java.security.PublicKey;
+import java.util.Base64;
+
 @Service
 @Slf4j
 public class UserService implements IUserService {
@@ -121,6 +124,15 @@ public class UserService implements IUserService {
         response.setRole(newUser.getRole());
         response.setExpirationTime("7 Dias");
         response.setMessage("Exitoso");
+        return response;
+    }
+
+    public Response getPublicKey(){
+        Response response = new Response();
+        PublicKey publicKey = JWTUtils.getPublicKey();
+        String key = Base64.getEncoder().encodeToString(publicKey.getEncoded());
+        response.setStatusCode(HttpStatus.OK.value());
+        response.setToken(key);
         return response;
     }
 }

@@ -2,27 +2,35 @@ package pe.edu.cibertec.micro_auth.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import lombok.Getter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.Date;
 import java.util.function.Function;
 
 @Service
 public class JWTUtils {
     private static final long EXPIRATION_TIME = 1000 * 60 * 24 * 7; //for 7 days
+    private static final KeyPair keyPair;
+    @Getter
+    private static final PublicKey publicKey;
+    private static final PrivateKey privateKey;
 
-    private final SecretKey Key;
+    static {
+        try {
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+            keyPairGenerator.initialize(2048);
+            keyPair = keyPairGenerator.generateKeyPair();
+            publicKey = keyPair.getPublic();
+            privateKey = keyPair.getPrivate();
 
-    public JWTUtils() {
-        String secreteString = "843567893696976453275974432697R634976R738467TR678T34865R6834R8763T478378637664538745673865783678548735687R3";
-        byte[] keyBytes = Base64.getDecoder().decode(secreteString.getBytes(StandardCharsets.UTF_8));
-        this.Key = new SecretKeySpec(keyBytes, "HmacSHA256");
-
+        } catch (Exception e) {
+            throw new RuntimeException("Error generating key pair", e);
+        }
     }
 
     public String generateToken(UserDetails userDetails) {
@@ -30,7 +38,7 @@ public class JWTUtils {
                 .subject(userDetails.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(Key)
+                .signWith(privateKey)
                 .compact();
     }
 
@@ -39,7 +47,7 @@ public class JWTUtils {
     }
 
     private <T> T extractClaims(String token, Function<Claims, T> claimsTFunction) {
-        return claimsTFunction.apply(Jwts.parser().verifyWith(Key).build().parseSignedClaims(token).getPayload());
+        return claimsTFunction.apply(Jwts.parser().verifyWith(publicKey).build().parseSignedClaims(token).getPayload());
     }
 
     public boolean isValidToken(String token, UserDetails userDetails) {
