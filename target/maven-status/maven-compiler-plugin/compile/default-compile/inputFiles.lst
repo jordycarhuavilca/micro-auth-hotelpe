@@ -1,3 +1,4 @@
+D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\config\AwsSQSConfig.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\config\EmailConfig.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\config\RedisConfig.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\controller\AuthController.java
@@ -19,7 +20,9 @@ D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\security\SecurityConfig.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\CustomUserDetailsService.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\impl\TemporalRegistrationService.java
+D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\impl\UserMessageListener.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\impl\UserService.java
+D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\interfac\IPublicKey.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\interfac\ITemporalRegistrationService.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\service\interfac\IUserService.java
 D:\OneDrive\Documentos\working-place-java-2024\final-proyect\micro-auth-hotelPe\src\main\java\pe\edu\cibertec\micro_auth\utils\JWTUtils.java
